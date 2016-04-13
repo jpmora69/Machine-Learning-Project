@@ -4,7 +4,7 @@ On the other hand, researchers has applied machine learning techniques to data a
 # Why this repo exists
 This is the repo for our Machine Learning final group project at [CUSP, NYU](http://cusp.nyu.edu/). It serves as a platform of code version control, code exchange, code safehouse and reproducibility.
 # TODO:
--[x] Scrape data from Foursquare
--[x] Merge rating data with DOHMH inspection data
--[] Neural network classification
--[] Spatial autocorrelation analysis
+- [x] Scrape data from Foursquare
+- [x] Merge rating data with DOHMH inspection data
+- [ ] Neural network classification
+- [ ] Spatial autocorrelation analysis
