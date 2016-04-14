@@ -4,6 +4,8 @@ Our main goal of this project is to apply the machine learning techniques to dat
 On the other hand, researchers has applied machine learning techniques to data available from other sources, especially mass-based restaurant recommendation software such as Yelp or Foursquare. See [Jin and Leslie 2003](http://qje.oxfordjournals.org/content/118/2/409.short), [Jin and Leslie 2009](https://www.aeaweb.org/articles?id=10.1257/mic.1.1.237), [Kang et al. 2013](http://www3.cs.stonybrook.edu/~junkang/hygiene/). These previous research provided a new approach: combine the restaurant ratings and other features from the restaurant recommendation software data, and find correlation between these features and restaurant inspection grades. For our project, we use data provided by foursquare and try to establish correlation between ratings and inspection results. Also we would like to visualize the risky areas in New York and try to find spatial patterns. We would also like to run a spatial autocorrelation analysis to see if restaurants nearby affect each other's food hygene performance.
 # Why this repo exists
 This is the repo for our Machine Learning final group project at [CUSP, NYU](http://cusp.nyu.edu/). It serves as a platform of code version control, code exchange, code safehouse and reproducibility.
+# License:
+This project is licensed under the [MIT License](https://github.com/Elixeus/Machine-Learning-Project/blob/master/LICENSE.md).
 # TODO:
 - [x] Scrape data from Foursquare
 - [x] Merge rating data with DOHMH inspection data
