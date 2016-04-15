@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 import pandas as pd
-from geopy.geocoders import Nominatim, GoogleV3, GeoNames
+import geopy
 
 
-def geocoding(fname, coder=GeoNames, address='Address',
+def geocoding(fname, coder=geopy.geocoders.Nominatim(), address='Address',
               n_init=0, n_end=5):
     '''
     This function takes 5 arguments: fname, coder, col, n_init, n_end
@@ -16,10 +16,9 @@ def geocoding(fname, coder=GeoNames, address='Address',
     # prepare the table: create two new columns: 'lat' and 'lon'
     fname['lat'] = None
     fname['lon'] = None
-    try:
-        fname['lat'] = fname.loc[n_init: n_end,
-                                 address].apply(lambda x:
-                                                coder.geocode(x).latitude)
-        fname['lon'] = fname.loc[n_init: n_end,
-                                 address].apply(lambda x:
-                                                coder.geocode(x).longitude)
+    fname['lat'] = fname.loc[n_init: n_end,
+                             address].apply(lambda x:
+                                            coder.geocode(x).latitude)
+    fname['lon'] = fname.loc[n_init: n_end,
+                             address].apply(lambda x:
+                                            coder.geocode(x).longitude)
