@@ -8,6 +8,8 @@ This is the repo for our Machine Learning final group project at [CUSP, NYU](htt
 This project is licensed under the [MIT License](https://github.com/Elixeus/Machine-Learning-Project/blob/master/LICENSE.md).
 # TODO:
 - [x] Scrape data from Foursquare
+- [ ] Select 2015 Inspection Data
+- [x] Geocode Restaurant Addresses
 - [x] Merge rating data with DOHMH inspection data
 - [ ] Neural network classification
 - [ ] Spatial autocorrelation analysis
