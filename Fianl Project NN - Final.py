@@ -174,7 +174,8 @@ colors = est.labels_.astype(np.float)
 cmap = ListedColormap(['blue','green','yellow','red', 'cyan'])
 plt.figure(figsize=(10, 8))
 boros.plot(alpha=0)
-plt.scatter(latlon1.longitude, latlon1.latitude, s=20, c=colors, cmap=cmap,             alpha = 0.5)
+plt.scatter(latlon1.longitude, latlon1.latitude, s=20, c=colors, 
+            cmap=cmap, alpha = 0.5)
 plt.title("Clustering with K-means and 2 clusters", fontsize = 20)
 plt.xlabel('Latitude', fontsize=16)
 plt.ylabel('Longitude', fontsize=16)
@@ -233,7 +234,9 @@ BCscores_pred.columns = ['predictions']
 
 BCscores_pred.predictions.plot(kind='hist', bins=20, figsize=(6,4), grid=True,                             title = "Histogram of predicted DOH normalized Scores B&C (IS)", alpha=0.8)
 
-BC_food_sel_scaled_train.SCORE.plot(kind='hist', bins=20, figsize=(6,4), grid=True,                             title = "Histogram of actual DOH normalized Scores B&C (IS)", alpha=0.8)
+BC_food_sel_scaled_train.SCORE.plot(kind='hist', bins=20, figsize=(6,4), 
+                                    grid=True, 
+                                    title = "Histogram of actual DOH normalized Scores B&C (IS)", alpha=0.8)
 
 
 
