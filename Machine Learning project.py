@@ -1,6 +1,6 @@
 
 # coding: utf-8
-#Author @juan pablo
+#by Juan Pablo
 
 import pandas as pd
 import numpy as np
@@ -90,9 +90,7 @@ plt.ylim([40.5, 40.95])
 plt.xlim([-74.3, -73.6])
 plt.grid()
 
-
 food_sel_scaled_df = pd.DataFrame(preprocessing.scale(food_sel), columns =['rating','SCORE','price.tier', 'stats.checkinsCount'])
-
 
 #Dividing the sample into train and test sets
 np.random.seed(2015)
@@ -110,6 +108,7 @@ n_seq = len(food_sel_scaled_train)   # the number of datapoints (i.e. sequences)
 #Creating input and output arrays for training RNN         
 rating = np.array(food_sel_scaled_train[['rating','price.tier','stats.checkinsCount']]).reshape(n_seq,n_steps,n_in)
 score = np.array(food_sel_scaled_train['SCORE']).reshape(n_seq,n_steps,n_out)
+
 
 #Creating the model and feeding it with training data set
 model = MetaRNN(n_in=n_in, n_hidden=n_hidden, n_out=n_out,
@@ -147,9 +146,12 @@ scores_pred1.predictions.plot(kind='hist', bins=20, figsize=(6,4), grid=True,   
 food_sel_scaled_test.SCORE.plot(kind='hist', bins=20, figsize=(6,4), grid=True,                             title = "Histogram of actual DOH normalized Scores (OS)", alpha=0.8)
 
 fig = plt.figure(figsize=(8,6))
-ax = plt.scatter(x=food_sel_scaled_test.SCORE, y=scores_pred1.predictions,            alpha=0.8)
+ax = plt.scatter(x=food_sel_scaled_test.SCORE, y=scores_pred1.predictions, 
+                 alpha=0.8)
 plt.grid()
 plt.title('OS predicted and actual results (Normalized)')
+plt.xlabel('Actual Score', fontsize=16)
+plt.ylabel('Predicted Score', fontsize=16)
 
 BCsubset = (food[food.SCORE > 13])
 
@@ -163,7 +165,8 @@ latlon1 = latlon1[['longitude', 'latitude']]
 plt.figure(figsize=(10,8))
 boros.plot(alpha=0)
 plt.scatter(latlon1.longitude, latlon1.latitude, s=20, alpha=0.3)
-plt.title("Distribution of food stablishments @ NYC (B and C rated)", fontsize = 20)
+plt.title("Distribution of food stablishments @ NYC (B and C rated)", 
+          fontsize = 20)
 plt.ylim([40.45, 40.95])
 plt.xlim([-74.3, -73.6])
 plt.grid()
@@ -196,7 +199,8 @@ colors = est.labels_.astype(np.float)
 cmap = ListedColormap(['blue','green','yellow','red', 'cyan'])
 plt.figure(figsize=(10, 8))
 boros.plot(alpha=0)
-plt.scatter(latlon1.longitude, latlon1.latitude, s=20, c=colors, cmap=cmap,             alpha = 0.5)
+plt.scatter(latlon1.longitude, latlon1.latitude, s=20, c=colors, cmap=cmap, 
+            alpha = 0.5)
 plt.title("Clustering with K-means and 2 clusters", fontsize = 20)
 plt.xlabel('Latitude', fontsize=16)
 plt.ylabel('Longitude', fontsize=16)
@@ -222,7 +226,9 @@ plt.ylim([40.5, 40.95])
 plt.xlim([-74.3, -73.6])
 plt.grid()
 
-BC_food_sel_scaled_df = pd.DataFrame(preprocessing.scale(BC_food_sel), columns =['rating','SCORE','price.tier',                                                                                 'stats.checkinsCount'])
+BC_food_sel_scaled_df = pd.DataFrame(preprocessing.scale(BC_food_sel), 
+                                     columns =['rating','SCORE','price.tier','stats.checkinsCount'])
+
 
 #Dividing the sample into train and test sets
 np.random.seed(2015)
@@ -252,9 +258,12 @@ BCscores_pred = pd.DataFrame(BCguess)
 
 BCscores_pred.columns = ['predictions']
 
-BCscores_pred.predictions.plot(kind='hist', bins=20, figsize=(6,4), grid=True,                             title = "Histogram of predicted DOH normalized Scores B&C (IS)", alpha=0.8)
+BCscores_pred.predictions.plot(kind='hist', bins=20, figsize=(6,4), grid=True, 
+                               title = "Histogram of predicted DOH normalized Scores B&C (IS)", alpha=0.8)
 
-BC_food_sel_scaled_train.SCORE.plot(kind='hist', bins=20, figsize=(6,4), grid=True,                             title = "Histogram of actual DOH normalized Scores B&C (IS)", alpha=0.8)
+BC_food_sel_scaled_train.SCORE.plot(kind='hist', bins=20, figsize=(6,4), grid=True, 
+                                    title = "Histogram of actual DOH normalized Scores B&C (IS)", alpha=0.8)
+
 
 #Creating parameters for training RNN
 n_hidden = 5 # M
@@ -272,15 +281,18 @@ BCscores_pred1 = pd.DataFrame(BCguess1)
 
 BCscores_pred1.columns = ['predictions']
 
-BCscores_pred1.predictions.plot(kind='hist', bins=20, figsize=(6,4), grid=True,                             title = "Histogram of predicted DOH normalized Scores B&C (OS)", alpha=0.8)
+BCscores_pred1.predictions.plot(kind='hist', bins=20, figsize=(6,4), grid=True, 
+                                title = "Histogram of predicted DOH normalized Scores B&C (OS)", alpha=0.8)
 
-BC_food_sel_scaled_test.SCORE.plot(kind='hist', bins=20, figsize=(6,4), grid=True,                             title = "Histogram of actual DOH normalized Scores B&C (OS)", alpha=0.8)
+BC_food_sel_scaled_test.SCORE.plot(kind='hist', bins=20, figsize=(6,4), grid=True, 
+                                   title = "Histogram of actual DOH normalized Scores B&C (OS)", alpha=0.8)
 
 fig = plt.figure(figsize=(8,6))
-ax = plt.scatter(x=BC_food_sel_scaled_test.SCORE, y=BCscores_pred1.predictions,            alpha=0.8)
+ax = plt.scatter(x=BC_food_sel_scaled_test.SCORE, y=BCscores_pred1.predictions, 
+                 alpha=0.8)
 plt.grid()
 plt.title('OS predicted and actual results (Normalized)')
-
-
+plt.xlabel('Actual Score', fontsize=16)
+plt.ylabel('Predicted Score', fontsize=16)
 
 
