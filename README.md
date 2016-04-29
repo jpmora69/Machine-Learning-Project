@@ -1,3 +1,4 @@
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Elixeus/Machine-Learning-Project/blob/master/LICENSE.md)
 # About our project
 Our main goal of this project is to apply the machine learning techniques to data available in the urban context. For this project, we are particularly interested in the restaurant hygene condition in New York City. The Big Apple has more than [20,000 restaurants by July of 2015](http://http://www.wsj.com/articles/new-york-city-restaurants-multiply-despite-high-profile-closures-1412816142). But not every restaurant is ready to provide the clients with a service both safe and delicious. According to the Department of Health and Mental Hygene (DOHMH), only 72% of the restaurants among all the restaurants inspected had an A grade. So the food safety remains a concern for New Yorkers who choose to eat outside.
 
